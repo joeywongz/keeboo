@@ -1,7 +1,9 @@
 <template>
     <div>
-        statistics.vue
-        <Nav/>
+        <div>
+            页面不存在
+        </div>
+        <router-link to="/">返回首页</router-link>
     </div>
 </template>
 
@@ -9,8 +11,7 @@
     import Vue from 'vue'
 
     export default Vue.extend({
-        name: 'Statistics',
-
+        name: 'NotFound'
     })
 </script>
 
