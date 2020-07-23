@@ -7,10 +7,11 @@
 </template>
 
 <script lang="ts">
-    import Vue from 'vue'
+    import icons from '@/assets/icons/money.svg'
 
-    export default Vue.extend({
-        
+    console.log(icons)
+    export default ({
+        name: 'Nav'
     })
 </script>
 
