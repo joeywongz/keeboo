@@ -10,14 +10,16 @@
 </template>
 
 <script lang="ts">
-    import icons from '@/assets/icons/money.svg'
-    import y from '@/assets/icons/label.svg'
-    console.log(icons)
-    console.log(y);
-    
-    export default ({
-        name: 'Nav'
-    })
+  const importAll = (requireContext: __WebpackModuleApi.RequireContext) => requireContext.keys().forEach(requireContext);
+  try {
+    importAll(require.context('../assets/icons', true, /\.svg$/));
+  } catch (error) {
+    console.log(error);
+  }
+
+  export default ({
+      name: 'Nav'
+  })
 </script>
 
 <style lang="scss" scoped>
