@@ -3,7 +3,7 @@
         <Layout>
             statistics.vue           
         </Layout>
-    </div>
+    </div>  
 </template>
 
 <script lang="ts">
