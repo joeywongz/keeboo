@@ -14,7 +14,7 @@
     <div>
       <label class="comments">
         <span class="name">备注</span>
-        <input type="text" />
+        <input type="text" placeholder="在这里输入备注">
       </label>
     </div>
     <div>
@@ -54,31 +54,73 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-@import "~@/assets/style/helper.scss";
-.tags {
-  font-size: 14px;
-  padding: 16px;
-  > .current {
+  @import "~@/assets/style/helper.scss";
+  .types {
+    background: #c4c4c4;
     display: flex;
-    > li{
-      background: #d9d9d9;
-      $h: 24px;
-      height: $h;
-      line-height: $h;
-      border-radius: $h/2;
-      padding: 0 16px;
-      margin-right: 12px;
+    text-align: center;
+    font-size: 24px;
+    > li {
+      width: 50%;
+      height: 64px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      &.selected{
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          background: #333;
+        }
+      }
     }
   }
-  > .new{
-    padding-top: 16px;
-    button{
+  .tags {
+    font-size: 14px;
+    padding: 16px;
+    > .current {
+      display: flex;
+      > li {
+        background: #d9d9d9;
+        $h: 24px;
+        height: $h;
+        line-height: $h;
+        border-radius: $h/2;
+        padding: 0 16px;
+        margin-right: 12px;
+      }
+    }
+    > .new {
+      padding-top: 16px;
+      button {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid;
+        color: #999;
+        padding: 0 4px;
+      }
+    }
+  }
+  .comments {
+    font-size: 14px;
+    background: #f5f5f5;
+    display: flex;
+    padding-left: 16px;
+    align-items: center;
+    .name{
+      padding-right: 16px;
+    }
+    input{
+      height: 64px;
+      flex-grow: 1;
       background: transparent;
       border: none;
-      border-bottom: 1px solid;
-      color: #999;
-      padding: 0 4px;
+      padding-right: 16px;
     }
   }
-}
 </style>
