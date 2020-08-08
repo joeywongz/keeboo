@@ -1,10 +1,10 @@
 <template>
   <div class="numberPad">
-    <div class="output">100</div>
+    <div class="output">{{output}}</div>
     <div class="buttons">
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
+      <button @click="output += 1">1</button>
+      <button @click="output += 2">2</button>
+      <button @click="output += 3">3</button>
       <button>删除</button>
       <button>4</button>
       <button>5</button>
@@ -21,9 +21,13 @@
 </template>
 
 <script lang="ts">
+  import Vue from 'vue';
+  import {Component} from 'vue-property-decorator';
 
-  export default {
-    name: 'NumberPad'
+  @Component
+  export default class NumberPad extends Vue{
+    output = '';
+        
   }
 </script>
 
@@ -31,11 +35,13 @@
   @import "~@/assets/style/helper.scss";
   .numberPad{
     .output{
+      @extend %clearFix;
       @extend %innerShadow;
       font-size: 36px;
       font-family: Consolas, monospace;
       padding: 9px 16px;
       text-align: right;
+      height: 72px;
     }
     .buttons{
       @extend %clearFix;
