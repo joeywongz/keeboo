@@ -48,6 +48,8 @@
         this.output = this.output.slice(0, -1);
       }
     }
+    clear() {}
+    ok() {}
   }
 </script>
 
