@@ -3,7 +3,7 @@
     <number-pad/>
     <types/>
     <notes/>
-    <tags :data-source="tags"/>
+    <tags :data-source.sync="tags"/>
   </Layout>
 </template>
 

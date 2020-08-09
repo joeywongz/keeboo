@@ -1,7 +1,7 @@
 <template>
   <div class="tags">
     <div class="new">
-      <button>新增标签</button>
+      <button @click="create">新增标签</button>
     </div>
     <ul class="current">
       <li
@@ -28,6 +28,14 @@ export default class Tags extends Vue {
       this.selectedTags.splice(index, 1);
     }else {
       this.selectedTags.push(tag);
+    }
+  }
+  create() {
+    const newTag: string = window.prompt('请输入新标签名称')!;
+    if(newTag === '') {
+      window.alert('标签名不能为空');
+    } else if (this.dataSource){
+      this.$emit('update:dataSource', [...this.dataSource, newTag]);
     }
   }
 }
