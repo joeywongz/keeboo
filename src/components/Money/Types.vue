@@ -16,10 +16,11 @@
     @Prop() readonly value!: string;
     type: string = this.value
     selectType(type: string) {
+      this.type = type;
       if(type !== '-' && type !== '+') {  // type只能是'-'和'+'中的一种
         throw new Error('type is unknown');
       }
-      this.$emit('update: value', type);
+      this.$emit('update: value', type);      
     }
   }
 </script>
