@@ -50,11 +50,14 @@
         this.output = this.output.slice(0, -1);
       }
     }
-    clear() {}
+    clear() {
+      this.output = '0';
+    }
     ok() {
       console.log(this.output);
       this.$emit('update: value', this.output);
       this.$emit('submit', this.output);
+      this.output = '0';
     }
   }
 </script>
