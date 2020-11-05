@@ -37,7 +37,6 @@ export default class Money extends Vue{
   }
   onUpdateTags(val: string[]) {
     this.record.tags = val
-    console.log(this.record);
   }
   saveRecord(){
     const record2: Record = JSON.parse(JSON.stringify(this.record));

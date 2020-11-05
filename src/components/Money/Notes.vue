@@ -17,7 +17,7 @@
 
     @Watch('value')
     onValueChange(val: string) {
-      this.$emit('update: value', val);
+      this.$emit('update:value', val);
     }
   }
 </script>
