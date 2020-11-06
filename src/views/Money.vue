@@ -16,7 +16,8 @@ import Notes from '@/components/Money/Notes.vue';
 import Tags from '@/components/Money/Tags.vue';
 import {Component, Watch} from 'vue-property-decorator';
 
-window.localStorage.setItem('version', '0.0.1');
+const recordList: Record[] = JSON.parse(window.localStorage.getItem('recordList') || '{}')
+
 type Record = {
   tags?: string[];
   notes?: string;
@@ -30,8 +31,8 @@ type Record = {
 })
 export default class Money extends Vue{
   tags = ['衣', '食', '住', '行', '彩票']
-  record: Record = {tags: [], notes: '', type: '+', amount: 0}
-  recordList: Record[] = JSON.parse(window.localStorage.getItem('recordList') || [])
+  record: Record = {tags: [], notes: '', type: '+', amount: 0};
+  recordList: Record[] = recordList;
   onUpdateNotes(val: string) {
     this.record.notes = val
   }
