@@ -15,8 +15,11 @@ import Types from '@/components/Money/Types.vue';
 import Notes from '@/components/Money/Notes.vue';
 import Tags from '@/components/Money/Tags.vue';
 import {Component, Watch} from 'vue-property-decorator';
+const {model} = require('@/model.js')
 
-const recordList: Record[] = JSON.parse(window.localStorage.getItem('recordList') || '{}')
+console.log(model);
+
+const recordList: Record[] = model.fetch()  //获取数据
 
 type Record = {
   tags?: string[];
@@ -47,7 +50,7 @@ export default class Money extends Vue{
   }
   @Watch('recordList')
   onRecordListChange(){
-    window.localStorage.setItem('recordList', JSON.stringify(this.recordList))
+    model.save(this.recordList)
   }
 }
 </script>
