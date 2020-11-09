@@ -1,6 +1,5 @@
 <template>
   <Layout class-prefix="layout">
-    {{record}}
     <number-pad :value.sync="record.amount" @submit="saveRecord"/>
     <types :value.sync="record.type" />
     <notes @update:value="onUpdateNotes"/>
@@ -36,7 +35,6 @@ export default class Money extends Vue{
     const record2: RecordIterm = model.clone(this.record)
     record2.createdAt = new Date();
     this.recordList.push(record2)
-    console.log(this.recordList);
   }
   @Watch('recordList')
   onRecordListChange(){

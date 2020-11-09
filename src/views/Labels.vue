@@ -1,19 +1,57 @@
 <template>
-    <div>
-        <Layout>
-            Labels.vue            
-        </Layout>
-    </div>
+  <div>
+    <Layout>
+      <ol class="tags">
+        <li><span>衣</span> <icon name="right" /></li>
+        <li><span>食</span> <icon name="right" /></li>
+        <li><span>住</span> <icon name="right" /></li>
+        <li><span>行</span> <icon name="right" /></li>
+      </ol>
+      <div class="createTag-wrapper">
+        <button class="createTag">新建标签</button>
+      </div>
+    </Layout>
+  </div>
 </template>
 
 <script lang="ts">
-    import Vue from 'vue'
+import Vue from "vue";
 
-    export default Vue.extend({
-        name: 'Labels',
-    })
+export default Vue.extend({
+  name: "Labels",
+});
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.tags {
+  background-color: white;
+  font-size: 16px;
+  padding-left: 16px;
+  > li {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e6e6e6;
+  }
+  svg {
+    color: #222;
+    margin-right: 16px;
+    width: 20px;
+    height: 20px;
+  }
+}
+.createTag {
+  background: #767676;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  height: 40px;
+  padding: 0 16px;
+  &-wrapper {
+    text-align: center;
+    padding: 16px;
+    margin-top: 44-16px;
+  }
+}
 </style>
