@@ -4,6 +4,7 @@ import Money from '@/views/Money.vue'
 import Labels from '@/views/Labels.vue'
 import Statistics from '@/views/Statistics.vue'
 import NotFound from '@/views/NotFound.vue'
+import EditLabels from '@/views/EditLabels.vue'
 
 Vue.use(VueRouter)
 
@@ -17,8 +18,12 @@ Vue.use(VueRouter)
       component: Money
     },
     {
-      path: '/Labels',
+      path: '/labels',
       component: Labels
+    },
+    {
+      path: '/labels/edit',
+      component: EditLabels
     },
     {
       path: '/statistics',

@@ -31,7 +31,7 @@ export default class Labels extends Vue {
       if(createStatus === 'success'){
           window.alert('添加成功！')
       }else if(createStatus === 'duplicated') {
-          window.alert('标签名重复！')
+          window.alert('标签名重复！')  
       }
     }
   }
