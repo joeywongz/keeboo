@@ -14,9 +14,11 @@ import Types from '@/components/Money/Types.vue';
 import Notes from '@/components/Money/Notes.vue';
 import Tags from '@/components/Money/Tags.vue';
 import {Component, Watch} from 'vue-property-decorator';
-import model from '@/model';
+import recordListModel from '@/models/recordListModel';
+import tagListModel from '@/models/tagListModel'
 
-const recordList = model.fetch()  //获取数据
+const recordList = recordListModel.fetch()  //获取数据
+const tags = tagListModel.fetch()
 
 @Component({
   components: {NumberPad, Types, Notes, Tags}
@@ -32,13 +34,13 @@ export default class Money extends Vue{
     this.record.tags = val
   }
   saveRecord(){
-    const record2: RecordIterm = model.clone(this.record)
+    const record2: RecordIterm = recordListModel.clone(this.record)
     record2.createdAt = new Date();
     this.recordList.push(record2)
   }
   @Watch('recordList')
   onRecordListChange(){
-    model.save(this.recordList)
+    recordListModel.save(this.recordList)
   }
 }
 </script>
