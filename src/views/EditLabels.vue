@@ -1,33 +1,33 @@
 <template>
-  <div>
     <Layout>
-      编辑label
+      <div>
+        <Icon name="left" />
+        <span>编辑label</span>
+      </div>
+      <notes fieldName="标签名" placeholder="请输入标签名"></notes>
     </Layout>
-    
-  </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
+import Vue from "vue";
+import { Component } from "vue-property-decorator";
 import tagListModel from "@/models/tagListModel";
 
 @Component
 export default class EditLabels extends Vue {
   created() {
     const id = this.$route.params.id;
-    tagListModel.fetch()
+    tagListModel.fetch();
     const tags = tagListModel.data;
-    const tag = tags.filter(t => t.id === id)[0];
-    if(tag) {
+    const tag = tags.filter((t) => t.id === id)[0];
+    if (tag) {
       console.log(tag);
-    }else {
-      this.$router.replace('/404')
+    } else {
+      this.$router.replace("/404"); //tag不存在则跳转404页面
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-
 </style>
