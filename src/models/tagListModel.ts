@@ -23,7 +23,7 @@ const tagListModel: TagListModel = {
     return 'success'
   },
   fetch() {
-    return JSON.parse(window.localStorage.getItem(localStorageKeyName) || '[]')
+    return this.data = JSON.parse(window.localStorage.getItem(localStorageKeyName) || '[]')
   },
   save() {
     window.localStorage.setItem(localStorageKeyName, JSON.stringify(this.data))
