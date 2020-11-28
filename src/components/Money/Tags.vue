@@ -8,8 +8,10 @@
         v-for="tag in dataSource"
         :key="tag"
         @click="toggle(tag)"
-        :class="{selected: selectedTags.indexOf(tag)>=0}"
-      >{{tag}}</li>
+        :class="{ selected: selectedTags.indexOf(tag) >= 0 }"
+      >
+        {{ tag }}
+      </li>
     </ul>
   </div>
 </template>
@@ -24,19 +26,19 @@ export default class Tags extends Vue {
   selectedTags: string[] = [];
   toggle(tag: string) {
     const index = this.selectedTags.indexOf(tag);
-    if (index >=0) {
+    if (index >= 0) {
       this.selectedTags.splice(index, 1);
-    }else {
+    } else {
       this.selectedTags.push(tag);
     }
-    this.$emit('update:value', this.selectedTags)
+    this.$emit("update:value", this.selectedTags);
   }
   create() {
-    const newTag: string = window.prompt('请输入新标签名称')!;
-    if(newTag === '') {
-      window.alert('标签名不能为空');
-    } else if (this.dataSource){
-      this.$emit('update:dataSource', [...this.dataSource, newTag]);
+    const newTag: string = window.prompt("请输入新标签名称")!;
+    if (newTag === "") {
+      window.alert("标签名不能为空");
+    } else if (this.dataSource) {
+      this.$emit("update:dataSource", [...this.dataSource, newTag]);
     }
   }
 }
@@ -45,6 +47,7 @@ export default class Tags extends Vue {
 <style lang="scss" scoped>
 .tags {
   font-size: 14px;
+  background: white;
   padding: 16px;
   flex-grow: 1;
   display: flex;
