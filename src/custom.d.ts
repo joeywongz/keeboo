@@ -1,6 +1,6 @@
 type RecordIterm = {
   tags?: string[];
-  notes?: string;
+  formItem?: string;
   type?: string;
   amount: number;
   createdAt?: Date;

@@ -3,11 +3,11 @@
     <Layout>
       <div class="tags">
         <router-link class="tag" :to="`/labels/edit/${tag.id}`" v-for="tag in tags" :key="tag.id">
-          <span>{{ tag.name }}</span> <icon name="right" />
+          <span>{{ tag.name }}</span> <Icon name="right" />
         </router-link>
       </div>
-      <div class="createTag-wrapper">
-        <button class="createTag" @click="createTag">新建标签</button>
+      <div class="createTag-wrapper" >
+        <Button class="createTag" @click="createTag">新建标签</Button>
       </div>
     </Layout>
   </div>
@@ -19,6 +19,8 @@ import { Component } from "vue-property-decorator";
 import tagListModel from "@/models/tagListModel";
 
 tagListModel.fetch(); //从localStorage获取数据到tagListModel
+  console.log(tagListModel);
+  
   console.log(tagListModel.data);
 
 @Component
