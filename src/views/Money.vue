@@ -30,7 +30,8 @@ const tags = tagListModel.fetch();
   components: { NumberPad, Types, FormItem, Tags },
 })
 export default class Money extends Vue {
-  tags = ["衣", "食", "住", "行", "彩票"];
+  // tags = ["衣", "食", "住", "行", "彩票"];
+  tags = tags;
   record: RecordIterm = { tags: [], formItem: "", type: "+", amount: 0 }; //数据初始值
   recordList: RecordIterm[] = recordList;
   onUpdateFormItem(val: string) {
