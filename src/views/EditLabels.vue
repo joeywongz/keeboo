@@ -51,8 +51,6 @@ export default class EditLabels extends Vue {
     width: 24px;
     height: 24px;
   }
-  > .title {
-  }
   > .rightIcon {
     width: 24px;
     height: 24px;
