@@ -10,6 +10,7 @@ type TagListModel = {
   create: (name: string) => 'success' | 'duplicated';
   update: (id: string, name: string) => 'success' | 'not found' | 'duplicated';
   save: () => void;
+  remove: (id: string) => boolean;
 }
 
 const tagListModel: TagListModel = {
@@ -41,10 +42,20 @@ const tagListModel: TagListModel = {
     } else {
       return 'not found';
     }
-
   },
   save() {
     window.localStorage.setItem(localStorageKeyName, JSON.stringify(this.data))
+  },
+  remove(id: string) {
+    let index = -1; //需要删除的tag的索引数
+    for(let i = 0; i < this.data.length; i++){
+      if(this.data[i].id === id) {
+        index = i;
+        break;
+      }
+    }
+    this.data.splice(index, 1);
+    return true;
   }
 }
 
