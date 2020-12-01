@@ -2,11 +2,16 @@
   <div>
     <Layout>
       <div class="tags">
-        <router-link class="tag" :to="`/labels/edit/${tag.id}`" v-for="tag in tags" :key="tag.id">
+        <router-link
+          class="tag"
+          :to="`/labels/edit/${tag.id}`"
+          v-for="tag in tags"
+          :key="tag.id"
+        >
           <span>{{ tag.name }}</span> <Icon name="right" />
         </router-link>
       </div>
-      <div class="createTag-wrapper" >
+      <div class="createTag-wrapper">
         <Button class="createTag" @click="createTag">新建标签</Button>
       </div>
     </Layout>
@@ -19,9 +24,6 @@ import { Component } from "vue-property-decorator";
 import tagListModel from "@/models/tagListModel";
 
 tagListModel.fetch(); //从localStorage获取数据到tagListModel
-  console.log(tagListModel);
-  
-  console.log(tagListModel.data);
 
 @Component
 export default class Labels extends Vue {
@@ -30,10 +32,10 @@ export default class Labels extends Vue {
     const tagName = window.prompt("请输入标签名");
     if (tagName) {
       const createStatus = tagListModel.create(tagName);
-      if(createStatus === 'success'){
-          window.alert('添加成功！')
-      }else if(createStatus === 'duplicated') {
-          window.alert('标签名重复！')  
+      if (createStatus === "success") {
+        window.alert("添加成功！");
+      } else if (createStatus === "duplicated") {
+        window.alert("标签名重复！");
       }
     }
   }
