@@ -24,14 +24,13 @@ import recordListModel from "@/models/recordListModel";
 import tagListModel from "@/models/tagListModel";
 
 const recordList = recordListModel.fetch(); //获取数据
-const tags = tagListModel.fetch();
 
 @Component({
   components: { NumberPad, Types, FormItem, Tags },
 })
 export default class Money extends Vue {
   // tags = ["衣", "食", "住", "行", "彩票"];
-  tags = tags;
+  tags = window.tagList;
   record: RecordItem = { tags: [], formItem: "", type: "+", amount: 0 }; //数据初始值
   recordList: RecordItem[] = recordList;
   onUpdateFormItem(val: string) {
