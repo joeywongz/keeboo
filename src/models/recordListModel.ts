@@ -1,13 +1,15 @@
 const localStorageKeyName = 'recordList'
 const recordListModel = {
-    clone(data: RecordIterm[] | RecordIterm){
+    data: [] as RecordIterm[],
+    clone(data: RecordIterm[] | RecordIterm) {
         return JSON.parse(JSON.stringify(data))
     },
     fetch() {
-        return JSON.parse(window.localStorage.getItem(localStorageKeyName) || '[]') as RecordIterm[];   //断言为RecordIterm类型
+        this.data = JSON.parse(window.localStorage.getItem(localStorageKeyName) || '[]');
+        return this.data;
     },
-    save(data: RecordIterm[]) {
-        window.localStorage.setItem(localStorageKeyName, JSON.stringify(data))
+    save() {
+        window.localStorage.setItem(localStorageKeyName, JSON.stringify(this.data))
     }
 }
 
