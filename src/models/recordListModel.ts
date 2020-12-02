@@ -1,7 +1,7 @@
 const localStorageKeyName = 'recordList'
 const recordListModel = {
-    data: [] as RecordIterm[],
-    clone(data: RecordIterm[] | RecordIterm) {
+    data: [] as RecordItem[],
+    clone(data: RecordItem[] | RecordItem) {
         return JSON.parse(JSON.stringify(data))
     },
     fetch() {

@@ -1,4 +1,4 @@
-type RecordIterm = {
+type RecordItem = {
   tags?: string[];
   formItem?: string;
   type?: string;

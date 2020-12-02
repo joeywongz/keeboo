@@ -32,8 +32,8 @@ const tags = tagListModel.fetch();
 export default class Money extends Vue {
   // tags = ["衣", "食", "住", "行", "彩票"];
   tags = tags;
-  record: RecordIterm = { tags: [], formItem: "", type: "+", amount: 0 }; //数据初始值
-  recordList: RecordIterm[] = recordList;
+  record: RecordItem = { tags: [], formItem: "", type: "+", amount: 0 }; //数据初始值
+  recordList: RecordItem[] = recordList;
   onUpdateFormItem(val: string) {
     this.record.formItem = val;
   }
@@ -41,7 +41,7 @@ export default class Money extends Vue {
     this.record.tags = val;
   }
   saveRecord() {
-    const record2: RecordIterm = recordListModel.clone(this.record);
+    const record2: RecordItem = recordListModel.clone(this.record);
     record2.createdAt = new Date();
     this.recordList.push(record2);
   }
@@ -57,7 +57,7 @@ export default class Money extends Vue {
   display: flex;
   flex-direction: column-reverse;
 }
-.notes{
+.notes {
   padding: 12px 0;
 }
 </style>
