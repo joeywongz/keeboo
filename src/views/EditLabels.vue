@@ -28,9 +28,12 @@ import { Component } from "vue-property-decorator";
   components: { FormItem },
 })
 export default class EditLabels extends Vue {
-  tag?: Tag = window.findTag(this.$route.params.id);
+  tag?: Tag = undefined;
   created() {
-    if (!this.tag) {
+    const tag = window.findTag(this.$route.params.id)
+    if (tag) {
+      this.tag = tag;
+    } else {
       this.$router.replace("/404"); //tag不存在则跳转404页面
     }
   }
