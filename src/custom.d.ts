@@ -25,4 +25,7 @@ interface Window {
   createTag: (tagName: string) => void;
   removeTag: (id: string) => boolean;
   updateTag: TagListModel['update'];
+
+  recordList: RecordItem[];
+  createRecord: (record: RecordItem) => void;
 }
