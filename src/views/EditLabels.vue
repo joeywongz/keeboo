@@ -23,7 +23,6 @@
 import Vue from "vue";
 import FormItem from "@/components/Money/FormItem.vue";
 import { Component } from "vue-property-decorator";
-import tagListModel from "@/models/tagListModel";
 
 @Component({
   components: { FormItem },
@@ -32,9 +31,7 @@ export default class EditLabels extends Vue {
   tag?: { id: string; name: string } = undefined;
   created() {
     const id = this.$route.params.id;
-    tagListModel.fetch();
-    const tags = tagListModel.data;
-    const tag = tags.filter((t) => t.id === id)[0];
+    const tag = window.findTag(id)
     if (tag) {
       this.tag = tag;
     } else {
