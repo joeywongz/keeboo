@@ -43,12 +43,12 @@ export default class EditLabels extends Vue {
   }
   updateTag(name: string) {
     if (this.tag) {
-      tagListModel.update(this.tag.id, name);
+      window.updateTag(this.tag.id, name);
     }
   }
   removeTag() {
     if (this.tag) {
-      if(tagListModel.remove(this.tag.id)) {
+      if(window.removeTag(this.tag.id)) {
         window.alert("删除成功")
         this.goback()
       } else {

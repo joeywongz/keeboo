@@ -22,4 +22,6 @@ type TagListModel = {
 interface Window {
   tagList: Tag[];
   createTag: (tagName: string) => void;
+  removeTag: (id1: string) => boolean;
+  updateTag: TagListModel['update'];
 }
