@@ -30,10 +30,8 @@ import { Component } from "vue-property-decorator";
 export default class EditLabels extends Vue {
   tag?: Tag = undefined;
   created() {
-    const tag = window.findTag(this.$route.params.id)
-    if (tag) {
-      this.tag = tag;
-    } else {
+    this.tag = window.findTag(this.$route.params.id)
+    if(!this.tag){
       this.$router.replace("/404"); //tag不存在则跳转404页面
     }
   }
